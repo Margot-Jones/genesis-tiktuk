@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <Navbar />
-      
+
       <Routes>
-        <Route path="/" element={<Feed />} />
+        <Route path="/" element={<Feed />}  />
         <Route path="/user" element={<User />} />
       </Routes>
     </>
