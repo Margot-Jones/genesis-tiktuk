@@ -8,15 +8,23 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatIcon from "@mui/icons-material/Chat";
 import ShareIcon from "@mui/icons-material/Share";
 import { makeStyles } from "@mui/styles";
-import PostPart from "./PostPart";
+import PostPart from "../PostPart";
+import { Chip } from "@mui/material";
 
-const hashtags = ["#kek", "#aga", "#net"];
+const hashtags = ["#kek", "#aga", "#net", "#kek", "#aga", "#net"];
 
 const useStyles = makeStyles({
   icons: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "space-around"
   },
+  hashtag: {
+    marginLeft: '7px',
+    marginTop: '5px'
+  },
+  iconText: {
+    fontSize: '17px'
+  }
 });
 
 let Post = () => {
@@ -36,18 +44,16 @@ let Post = () => {
 
       <CardContent>
         {hashtags.map((hash) => (
-          <Typography variant="body2" color="text.secondary" key={"hash"}>
-            {hash}
-          </Typography>
+          <Chip label={hash} variant="outlined"  key={"hash"} className={classes.hashtag}/>
         ))}
       </CardContent>
 
       <CardActions disableSpacing className={classes.icons}>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="add to favorites" className={classes.iconText}>
+          <FavoriteIcon />&nbsp;30.2M
         </IconButton>
-        <IconButton aria-label="chat">
-          <ChatIcon />
+        <IconButton aria-label="chat" className={classes.iconText}>
+          <ChatIcon />&nbsp;56K
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
