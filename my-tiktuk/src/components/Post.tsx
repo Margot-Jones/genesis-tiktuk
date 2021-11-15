@@ -1,36 +1,30 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import ChatIcon from "@mui/icons-material/Chat";
 import ShareIcon from "@mui/icons-material/Share";
+import { makeStyles } from "@mui/styles";
+import PostPart from "./PostPart";
+
+const hashtags = ["#kek", "#aga", "#net"];
+
+const useStyles = makeStyles({
+  icons: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
+});
 
 let Post = () => {
+  const classes = useStyles();
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-      
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
+      <PostPart />
 
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -40,17 +34,27 @@ let Post = () => {
         </Typography>
       </CardContent>
 
-      <CardActions disableSpacing>
+      <CardContent>
+        {hashtags.map((hash) => (
+          <Typography variant="body2" color="text.secondary" key={"hash"}>
+            {hash}
+          </Typography>
+        ))}
+      </CardContent>
+
+      <CardActions disableSpacing className={classes.icons}>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="chat">
+          <ChatIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
       </CardActions>
-
     </Card>
   );
-}
+};
 
 export default Post;
