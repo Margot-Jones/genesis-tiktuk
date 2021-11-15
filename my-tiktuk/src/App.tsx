@@ -1,14 +1,20 @@
-import React from 'react';
-import './App.css';
-import Feed from './pages/Feed';
-import User from './pages/User';
+import React from "react";
+import { Route, Routes } from "react-router";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Feed from "./pages/Feed";
+import User from "./pages/User";
 
 function App() {
   return (
-    <div className="App">
-      <Feed />
-      <User />
-    </div>
+    <>
+      <Navbar />
+      
+      <Routes>
+        <Route path="/" element={<Feed />} />
+        <Route path="/user" element={<User />} />
+      </Routes>
+    </>
   );
 }
 
