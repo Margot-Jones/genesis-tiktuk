@@ -4,6 +4,12 @@
 //
 //   "Set quicktype target language"
 
+
+export interface UserInfoProps {
+    authorMeta:             AuthorMeta;
+}
+
+
 export interface PostPartProps {
     authorMeta:             AuthorMeta;
     videoUrl:               string;

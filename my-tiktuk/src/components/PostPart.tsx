@@ -1,4 +1,3 @@
-import { red } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import CardHeader from "@mui/material/CardHeader";
 import ReactPlayer from "react-player";
@@ -20,9 +19,10 @@ const PostPart = ({ authorMeta, videoUrl } : PostPartProps) => {
         url={videoUrl}
         loop
         playing={playing}
-        width={"350px"}
         volume={0}
+        width={"350px"}
         onClick={() => setPlaying(play => !play)}
+        controls
       />
     </>
   );

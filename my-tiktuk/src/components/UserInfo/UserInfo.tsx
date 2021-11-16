@@ -1,31 +1,47 @@
-import { Grid } from "@mui/material";
+import { Button, CardContent, CardHeader, Grid } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import { red } from "@mui/material/colors";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
+import { UserInfoProps } from "../../types/interface";
 
 const useStyles = makeStyles({
-    userInfo: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
+  userInfo: {
+
   },
+  avatar: {
+    height: '120px',
+    width: '120px'
+  },
+  infoFollowing: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
 
-let UserInfo = () => {
+let UserInfo = ({ authorMeta } : UserInfoProps) => {
   const classes = useStyles();
 
   return (
     <Grid className={classes.userInfo}>
-      <Avatar sx={{ bgcolor: red[500], width: "100px", height: "100px" }}>
-        R
-      </Avatar>
-      <Typography variant="body2">
-        <b>Name</b>
-      </Typography>
-      <Typography variant="body2">
-        Insert status here, with some text.
-      </Typography>
+      <CardHeader
+        avatar={<Avatar alt={authorMeta.nickName} src={authorMeta.avatar} className={classes.avatar}/>}
+        title={<b style={{fontSize: '30px'}}>{authorMeta.nickName}</b>}
+        subheader={<em style={{fontSize: '17px'}}>{authorMeta.name}</em>}
+      />
+
+      <CardContent className={classes.infoFollowing}>
+        <Typography variant="body2" textAlign='center'>
+          <b>{authorMeta.fans}</b>&nbsp;Fans
+        </Typography>
+        <Typography variant="body2" textAlign='center'>
+          <b>{authorMeta.heart}</b>&nbsp;Heart
+        </Typography>
+        <Typography variant="body2" textAlign='center'>
+          <b>{authorMeta.following}</b>&nbsp;Following
+        </Typography>
+      </CardContent>
+
     </Grid>
   );
 };
