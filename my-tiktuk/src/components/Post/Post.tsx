@@ -11,6 +11,7 @@ import { makeStyles } from "@mui/styles";
 import PostPart from "../PostPart";
 import { Chip } from "@mui/material";
 import { PostProp } from "../../types/interface";
+import shortenNumber from "../../math/shortenNumber";
 
 const useStyles = makeStyles({
   icons: {
@@ -46,16 +47,16 @@ const Post = ({ text, authorMeta, videoUrl, diggCount, commentCount, hashtags } 
 
       <CardContent className={classes.hashtags}>
         {hashtags.map((hash) => (
-          <Chip label={hash.name} variant="outlined"  key={"hash"} className={classes.hashtag}/>
+          <Chip label={'#'+hash.name} variant="outlined"  key={"hash"} className={classes.hashtag}/>
         ))}
       </CardContent>
 
       <CardActions disableSpacing className={classes.icons}>
         <IconButton aria-label="add to favorites" className={classes.iconText}>
-          <FavoriteIcon />&nbsp;{diggCount}
+          <FavoriteIcon />&nbsp;{shortenNumber(diggCount)}
         </IconButton>
         <IconButton aria-label="chat" className={classes.iconText}>
-          <ChatIcon />&nbsp;{commentCount}
+          <ChatIcon />&nbsp;{shortenNumber(commentCount)}
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />

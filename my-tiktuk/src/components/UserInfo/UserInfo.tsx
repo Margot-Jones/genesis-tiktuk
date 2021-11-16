@@ -1,7 +1,8 @@
-import { Button, CardContent, CardHeader, Grid } from "@mui/material";
+import { CardContent, CardHeader, Grid } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
+import shortenNumber from "../../math/shortenNumber";
 import { UserInfoProps } from "../../types/interface";
 
 const useStyles = makeStyles({
@@ -16,6 +17,9 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  b: {
+    fontSize: '17px'
   }
 });
 
@@ -32,13 +36,13 @@ let UserInfo = ({ authorMeta } : UserInfoProps) => {
 
       <CardContent className={classes.infoFollowing}>
         <Typography variant="body2" textAlign='center'>
-          <b>{authorMeta.fans}</b>&nbsp;Fans
+          <b className={classes.b}>{shortenNumber(authorMeta.fans)}</b>&nbsp;Fans
         </Typography>
         <Typography variant="body2" textAlign='center'>
-          <b>{authorMeta.heart}</b>&nbsp;Heart
+          <b className={classes.b}>{shortenNumber(authorMeta.heart)}</b>&nbsp;Likes
         </Typography>
         <Typography variant="body2" textAlign='center'>
-          <b>{authorMeta.following}</b>&nbsp;Following
+          <b className={classes.b}>{shortenNumber(authorMeta.following)}</b>&nbsp;Following
         </Typography>
       </CardContent>
 

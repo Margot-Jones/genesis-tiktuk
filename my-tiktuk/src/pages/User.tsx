@@ -6,6 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import UserInfo from "../components/UserInfo/UserInfo";
 import { PostProp } from "../types/interface";
 import { makeStyles } from "@mui/styles";
+import shortenNumber from "../math/shortenNumber";
 
 const useStyles = makeStyles({
   iconText: {
@@ -36,7 +37,7 @@ let User = ({ authorMeta, videoUrl, diggCount }: PostProp) => {
                 className={classes.iconText}
               >
                 <VisibilityIcon />
-                &nbsp;{diggCount}
+                &nbsp;{shortenNumber(diggCount)}
               </IconButton>
             </CardActions>
           </Card>
