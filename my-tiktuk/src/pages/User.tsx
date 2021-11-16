@@ -4,8 +4,9 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import UserInfo from "../components/UserInfo/UserInfo";
+import { PostProp } from "../types/interface";
 
-let User = () => {
+let User = ({authorMeta, videoUrl } : PostProp) => {
   return (
     <>
         <Grid container>
@@ -15,7 +16,7 @@ let User = () => {
 
             <Grid item md={6}>
                 <Card sx={{ maxWidth: 345 }}>
-                    <PostPart />
+                    <PostPart authorMeta={authorMeta} videoUrl={videoUrl}/>
                     <CardActions disableSpacing>
                         <IconButton aria-label="add to favorites">
                             <VisibilityIcon />&nbsp;52,456

@@ -10,13 +10,17 @@ import ShareIcon from "@mui/icons-material/Share";
 import { makeStyles } from "@mui/styles";
 import PostPart from "../PostPart";
 import { Chip } from "@mui/material";
-
-const hashtags = ["#kek", "#aga", "#net", "#kek", "#aga", "#net"];
+import { PostProp } from "../../types/interface";
 
 const useStyles = makeStyles({
   icons: {
     display: "flex",
     justifyContent: "space-around"
+  },
+  hashtags: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
   },
   hashtag: {
     marginLeft: '7px',
@@ -27,33 +31,31 @@ const useStyles = makeStyles({
   }
 });
 
-let Post = () => {
+const Post = ({ text, authorMeta, videoUrl, diggCount, commentCount, hashtags } : PostProp) => {
   const classes = useStyles();
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <PostPart />
+      <PostPart authorMeta={authorMeta} videoUrl={videoUrl} />
 
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+        <Typography variant="body2" color="text.secondary" textAlign='center'>
+          {text}
         </Typography>
       </CardContent>
 
-      <CardContent>
+      <CardContent className={classes.hashtags}>
         {hashtags.map((hash) => (
-          <Chip label={hash} variant="outlined"  key={"hash"} className={classes.hashtag}/>
+          <Chip label={hash.name} variant="outlined"  key={"hash"} className={classes.hashtag}/>
         ))}
       </CardContent>
 
       <CardActions disableSpacing className={classes.icons}>
         <IconButton aria-label="add to favorites" className={classes.iconText}>
-          <FavoriteIcon />&nbsp;30.2M
+          <FavoriteIcon />&nbsp;{diggCount}
         </IconButton>
         <IconButton aria-label="chat" className={classes.iconText}>
-          <ChatIcon />&nbsp;56K
+          <ChatIcon />&nbsp;{commentCount}
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
