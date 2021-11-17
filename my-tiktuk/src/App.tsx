@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { getOnePost } from "./api/api";
+// import { getOnePost } from "./api/api";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Feed from "./pages/Feed";
@@ -13,7 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Feed />}  />
-        <Route path="/user/:id?" element={<User {...getOnePost()} />} />
+        <Route path="/user/:username" element={<User />} />
       </Routes>
     </>
   );

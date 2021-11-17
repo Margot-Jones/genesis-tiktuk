@@ -8,9 +8,9 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatIcon from "@mui/icons-material/Chat";
 import ShareIcon from "@mui/icons-material/Share";
 import { makeStyles } from "@mui/styles";
-import PostPart from "../PostPart";
+import PostPart from "../PostPart/PostPart";
 import { Chip } from "@mui/material";
-import { PostProp } from "../../types/interface";
+import { PostProp } from '../../types/feed';
 import { shortenNumber } from "../../math/additionalFunctions";
 import Avatar from "@mui/material/Avatar";
 import CardHeader from "@mui/material/CardHeader";
@@ -32,6 +32,10 @@ const useStyles = makeStyles({
   },
   iconText: {
     fontSize: '17px'
+  },
+  linkStyles: {
+    textDecoration: 'none',
+    color: 'black'
   }
 });
 
@@ -41,7 +45,7 @@ const Post = ({ text, authorMeta, videoUrl, diggCount, commentCount, hashtags } 
   return (
     <Card sx={{ maxWidth: 345, marginTop: '15px' }}>
 
-      <NavLink to={`/user/${authorMeta.id}`}>
+      <NavLink to={`/user/${authorMeta.name}`} className={classes.linkStyles}>
         <CardHeader
           avatar={<Avatar alt={authorMeta.nickName} src={authorMeta.avatar} />}
           title={<b>{authorMeta.nickName}</b>}

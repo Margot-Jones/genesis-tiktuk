@@ -5,7 +5,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import React from "react";
 import { useEffect, useState } from "react";
-import { PostProp } from "../types/interface";
+import { PostProp } from "../types/feed";
 import { Grid } from "@mui/material";
 
 

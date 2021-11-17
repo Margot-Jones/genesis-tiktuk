@@ -2,13 +2,12 @@ import { CardContent, CardHeader, Grid } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
+import { useEffect, useState } from "react";
+import { getUserInfo } from "../../api/api";
 import  { divideString, shortenNumber } from "../../math/additionalFunctions";
-import { UserInfoProps } from "../../types/interface";
+import { UserProp } from "../../types/user";
 
 const useStyles = makeStyles({
-  userInfo: {
-
-  },
   avatar: {
     height: '120px',
     width: '120px'
@@ -23,32 +22,43 @@ const useStyles = makeStyles({
   }
 });
 
-let UserInfo = ({ authorMeta } : UserInfoProps) => {
+interface UserInfoState {
+  uniqueId: string,
+  nickname: string,
+  signature: string,
+  avatar: string,
+  followerCount:number,
+  followingCount:number,
+  heartCount:number
+}
+
+const UserInfo = (userInfo: UserInfoState) => {
+  // const {user, stats} = userInfo;
   const classes = useStyles();
 
   return (
-    <Grid className={classes.userInfo}>
+    <Grid>
       <CardHeader
-        avatar={<Avatar alt={authorMeta.nickName} src={authorMeta.avatar} className={classes.avatar}/>}
-        title={<b style={{fontSize: '30px'}}>{authorMeta.nickName}</b>}
-        subheader={<em style={{fontSize: '17px'}}>{authorMeta.name}</em>}
+        avatar={<Avatar alt={userInfo.nickname} src={userInfo.avatar} className={classes.avatar}/>}
+        title={<b style={{fontSize: '30px'}}>{userInfo.nickname}</b>}
+        subheader={<em style={{fontSize: '17px'}}>{userInfo.uniqueId}</em>}
       />
 
       <CardContent className={classes.infoFollowing}>
         <Typography variant="body2" textAlign='center'>
-          <b className={classes.b}>{shortenNumber(authorMeta.fans)}</b>&nbsp;Fans
+          <b className={classes.b}>{shortenNumber(userInfo.followerCount)}</b>&nbsp;Fans
         </Typography>
         <Typography variant="body2" textAlign='center'>
-          <b className={classes.b}>{shortenNumber(authorMeta.heart)}</b>&nbsp;Likes
+          <b className={classes.b}>{shortenNumber(userInfo.heartCount)}</b>&nbsp;Likes
         </Typography>
         <Typography variant="body2" textAlign='center'>
-          <b className={classes.b}>{shortenNumber(authorMeta.following)}</b>&nbsp;Following
+          <b className={classes.b}>{shortenNumber(userInfo.followingCount)}</b>&nbsp;Following
         </Typography>
       </CardContent>
 
       <CardContent className={classes.infoFollowing}>
         <Typography variant="body2">
-          {divideString(authorMeta.signature)}
+          {divideString(userInfo.signature)}
         </Typography>
       
       </CardContent>
