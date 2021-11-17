@@ -11,7 +11,6 @@ export interface UserInfoProps {
 
 
 export interface PostPartProps {
-    authorMeta:             AuthorMeta;
     videoUrl:               string;
 }
 

@@ -6,7 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import UserInfo from "../components/UserInfo/UserInfo";
 import { PostProp } from "../types/interface";
 import { makeStyles } from "@mui/styles";
-import shortenNumber from "../math/shortenNumber";
+import { shortenNumber } from "../math/additionalFunctions";
 
 const useStyles = makeStyles({
   iconText: {
@@ -16,22 +16,27 @@ const useStyles = makeStyles({
     textAlign: "center",
     textDecoration: "underline",
   },
+  gallery: {
+    display: "flex",
+    alignContent: "stretch",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
 });
 
 let User = ({ authorMeta, videoUrl, diggCount }: PostProp) => {
   const classes = useStyles();
   return (
     <>
-      <Grid container flexDirection="column" alignContent="center">
-        <Grid item md={6}>
+      <Grid container flexDirection="column" alignItems="center">
+        <Grid container item md={4} sm={6} xs={10} flexDirection="column">
           <UserInfo authorMeta={authorMeta} />
+          <h1 className={classes.hStyle}>Videos</h1>
         </Grid>
 
-        <Grid item md={6}>
-          <h1 className={classes.hStyle}>Videos</h1>
+        <Grid container item md={9} sm={10} xs={10} className={classes.gallery}>
           <Card sx={{ maxWidth: 345 }}>
-            <PostPart authorMeta={authorMeta} videoUrl={videoUrl} />
-            <CardActions disableSpacing>
+            <CardActions disableSpacing sx={{display: 'flex', justifyContent: 'flex-end'}}>
               <IconButton
                 aria-label="add to favorites"
                 className={classes.iconText}
@@ -40,6 +45,7 @@ let User = ({ authorMeta, videoUrl, diggCount }: PostProp) => {
                 &nbsp;{shortenNumber(diggCount)}
               </IconButton>
             </CardActions>
+            <PostPart videoUrl={videoUrl} />
           </Card>
         </Grid>
       </Grid>

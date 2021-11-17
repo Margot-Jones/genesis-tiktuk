@@ -11,7 +11,10 @@ import { makeStyles } from "@mui/styles";
 import PostPart from "../PostPart";
 import { Chip } from "@mui/material";
 import { PostProp } from "../../types/interface";
-import shortenNumber from "../../math/shortenNumber";
+import { shortenNumber } from "../../math/additionalFunctions";
+import Avatar from "@mui/material/Avatar";
+import CardHeader from "@mui/material/CardHeader";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles({
   icons: {
@@ -37,7 +40,16 @@ const Post = ({ text, authorMeta, videoUrl, diggCount, commentCount, hashtags } 
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <PostPart authorMeta={authorMeta} videoUrl={videoUrl} />
+
+      <NavLink to={`/user/${authorMeta.id}`}>
+        <CardHeader
+          avatar={<Avatar alt={authorMeta.nickName} src={authorMeta.avatar} />}
+          title={<b>{authorMeta.nickName}</b>}
+          subheader={<em>{authorMeta.name}</em>}
+        />
+      </NavLink>
+
+      <PostPart videoUrl={videoUrl} />
 
       <CardContent>
         <Typography variant="body2" color="text.secondary" textAlign='center'>

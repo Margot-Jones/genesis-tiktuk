@@ -2,7 +2,7 @@ import { CardContent, CardHeader, Grid } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-import shortenNumber from "../../math/shortenNumber";
+import  { divideString, shortenNumber } from "../../math/additionalFunctions";
 import { UserInfoProps } from "../../types/interface";
 
 const useStyles = makeStyles({
@@ -44,6 +44,13 @@ let UserInfo = ({ authorMeta } : UserInfoProps) => {
         <Typography variant="body2" textAlign='center'>
           <b className={classes.b}>{shortenNumber(authorMeta.following)}</b>&nbsp;Following
         </Typography>
+      </CardContent>
+
+      <CardContent className={classes.infoFollowing}>
+        <Typography variant="body2">
+          {divideString(authorMeta.signature)}
+        </Typography>
+      
       </CardContent>
 
     </Grid>
