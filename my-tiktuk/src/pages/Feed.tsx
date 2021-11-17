@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import React from "react";
 import { useEffect, useState } from "react";
 import { PostProp } from "../types/interface";
+import { Grid } from "@mui/material";
 
 
 const Feed = () => {
@@ -25,7 +26,7 @@ const Feed = () => {
   }, [])
 
   return (
-    <>
+    <Grid display='flex' flexDirection='column' alignItems='center'>
       <Stack spacing={2}>
         <Typography>Page: {page}</Typography>
         <Pagination count={10} page={page} onChange={(event, value) => setPage(value)} />
@@ -33,7 +34,7 @@ const Feed = () => {
       {
       posts.map((p, i) => <Post {...p} key={i}/>)
       }
-    </>
+    </Grid>
   );
 };
 

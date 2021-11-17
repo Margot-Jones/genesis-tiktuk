@@ -39,7 +39,7 @@ const Post = ({ text, authorMeta, videoUrl, diggCount, commentCount, hashtags } 
   const classes = useStyles();
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, marginTop: '15px' }}>
 
       <NavLink to={`/user/${authorMeta.id}`}>
         <CardHeader
