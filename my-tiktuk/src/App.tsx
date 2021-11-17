@@ -14,7 +14,7 @@ function App() {
       <ErrorCatcher />
 
       <Routes>
-        <Route path="/" element={<Feed />}  />
+        <Route path="/" element={<Feed />} />
         <Route path="/user/:username" element={<User />} />
       </Routes>
     </>

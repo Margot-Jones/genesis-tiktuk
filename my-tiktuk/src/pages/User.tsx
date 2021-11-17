@@ -3,7 +3,7 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import UserInfo from "../components/UserInfo/UserInfo";
-import { ItemList} from "../types/video";
+import { ItemList } from "../types/video";
 import { makeStyles } from "@mui/styles";
 import { shortenNumber } from "../math/additionalFunctions";
 
@@ -123,7 +123,6 @@ let User = () => {
               </CardActions>
 
               <Video {...v} key={i} />
-
             </Card>
           ))}
         </Grid>

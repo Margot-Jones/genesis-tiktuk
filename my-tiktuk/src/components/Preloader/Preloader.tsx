@@ -1,7 +1,7 @@
-import preloader from '../../assets/preloader.svg'
+import preloader from "../../assets/preloader.svg";
 
 const Preloader = () => {
-    return <img src={preloader} alt={'preloader'} />
-}
+  return <img src={preloader} alt={"preloader"} />;
+};
 
 export default Preloader;

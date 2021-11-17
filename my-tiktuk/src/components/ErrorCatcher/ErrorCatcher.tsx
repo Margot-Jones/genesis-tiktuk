@@ -1,25 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 
-import { AxiosError } from 'axios';
+import { AxiosError } from "axios";
 
-import { Alert, Snackbar } from '@mui/material';
-import { instance } from '../../api/axiosError';
+import { Alert, Snackbar } from "@mui/material";
+import { instance } from "../../api/axiosError";
 
-const isClientError = (error: AxiosError) => (
-  error.response?.config?.method === 'get'
-    && error.response?.status >= 400
-    && error.response?.status < 500
-);
+const isClientError = (error: AxiosError) =>
+  error.response?.config?.method === "get" &&
+  error.response?.status >= 400 &&
+  error.response?.status < 500;
 
 const ErrorCatcher = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleClose = useCallback(() => {
-    setMessage('');
+    setMessage("");
   }, []);
 
   useEffect(() => {
-    instance.interceptors.response.use(undefined, (error:any) => {
+    instance.interceptors.response.use(undefined, (error: any) => {
       console.log(error);
       const errorMessage = isClientError(error)
         ? `Client error occurred: ${error.message}`
@@ -31,7 +30,7 @@ const ErrorCatcher = () => {
 
   return (
     <Snackbar
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
       open={Boolean(message)}
       autoHideDuration={4000}
       onClose={handleClose}
