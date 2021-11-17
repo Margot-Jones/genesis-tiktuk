@@ -1,7 +1,7 @@
 // import axios, { Method } from "axios";
-import { default as getFeed} from '../assets/getTrendingFeed.json'
-import { default as getUser} from '../assets/getUserInfo.json'
-import { default as getUserVideo} from '../assets/getUserFeed.json'
+import { default as getFeed} from '../lib/getTrendingFeed.json'
+import { default as getUser} from '../lib/getUserInfo.json'
+import { default as getUserVideo} from '../lib/getUserFeed.json'
 import { ItemList } from '../types/video';
 import { UserProp } from '../types/user';
 import { PostProp } from '../types/feed';

@@ -5,13 +5,14 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
+import logo from '../../assets/logo.svg';
 
 const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginBottom: 5 }}>
       <AppBar position="static">
         <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-          <img src="/../logo.svg" alt="logo.png" />
+          <img src={logo} alt="logo.svg" />
 
           <div>
             <IconButton

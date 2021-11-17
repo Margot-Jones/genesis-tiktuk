@@ -8,7 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatIcon from "@mui/icons-material/Chat";
 import ShareIcon from "@mui/icons-material/Share";
 import { makeStyles } from "@mui/styles";
-import PostPart from "../PostPart/PostPart";
+import PostPart from "./PostPart/PostPart";
 import { Chip } from "@mui/material";
 import { PostProp } from '../../types/feed';
 import { shortenNumber } from "../../math/additionalFunctions";

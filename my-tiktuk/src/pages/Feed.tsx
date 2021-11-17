@@ -24,11 +24,6 @@ const Feed = () => {
 
   return (
     <Grid display="flex" flexDirection="column" alignItems="center">
-      {posts
-        .slice(postsPage * (page - 1), postsPage * page)
-        .map((p, i) => (
-          <Post {...p} key={i} />
-        ))}
       <Stack spacing={2}>
         <Pagination
           count={Math.ceil(postsAmount / postsPage)}
@@ -37,6 +32,9 @@ const Feed = () => {
           }}
         />
       </Stack>
+      {posts.slice(postsPage * (page - 1), postsPage * page).map((p, i) => (
+        <Post {...p} key={i} />
+      ))}
     </Grid>
   );
 };

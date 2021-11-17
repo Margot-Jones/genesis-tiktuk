@@ -10,7 +10,7 @@ import { shortenNumber } from "../math/additionalFunctions";
 import { useEffect, useState } from "react";
 import { getUserFeedVideo, getUserInfo } from "../api/api";
 import { useParams } from "react-router";
-import Video from "../components/Video/Video";
+import Video from "../components/UserInfo/Video/Video";
 
 const useStyles = makeStyles({
   iconText: {

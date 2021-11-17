@@ -1,7 +1,7 @@
 import ReactPlayer from "react-player";
 import { useState } from "react";
-import { ItemList } from "../../types/video";
-import Preloader from "../Preloader/Preloader";
+import { ItemList } from "../../../types/video";
+import Preloader from "../../Preloader/Preloader";
 
 const Video = ({ video } : ItemList) => {
   const [playing, setPlaying] = useState(true);
