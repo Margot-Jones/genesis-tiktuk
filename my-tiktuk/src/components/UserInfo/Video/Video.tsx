@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import ReactPlayer from "react-player";
 import { useState } from "react";
 import { ItemList } from "../../../types/video";
@@ -10,6 +12,7 @@ const Video = ({ video } : ItemList) => {
 
   return !video.playAddr ? <Preloader /> : (
     <>
+      // eslint-disable-next-line react/react-in-jsx-scope
       <ReactPlayer
         url={video.playAddr}
         loop

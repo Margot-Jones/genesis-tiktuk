@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import ReactPlayer from "react-player";
 import { useState } from "react";
 import { PostPartProps } from "../../../types/feed";

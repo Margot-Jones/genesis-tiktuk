@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { CardContent, CardHeader, Grid } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
