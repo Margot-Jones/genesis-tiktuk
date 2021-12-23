@@ -16,7 +16,6 @@ const PostPart = ({
         url={videoUrl}
         loop
         playing={playing}
-        volume={0}
         width={"350px"}
         onClick={() => setPlaying((play) => !play)}
         controls
